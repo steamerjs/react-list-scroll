@@ -47,7 +47,7 @@ scrollTop > this.props.scrollPoint
 ####  `this.scrollEle.xxx`
 
 ```javascript
-\\ 内部使用了ref方式，将 `Scroll` 组件存放到组件属性当中
+// 内部使用了ref方式，将 `Scroll` 组件存放到组件属性当中
 <Scroll
 	ref={(scrollEle) => {
 		this.scrollEle = scrollEle;

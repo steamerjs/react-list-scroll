@@ -45,7 +45,7 @@ scrollTop > this.props.scrollPoint
 ####  `this.scrollEle.xxx`
 
 ```javascript
-\\ We use ref to store `Scroll` component in attribute.
+// We use ref to store `Scroll` component in attribute.
 <Scroll
 	ref={(scrollEle) => {
 		this.scrollEle = scrollEle;
