@@ -14,7 +14,7 @@ import List from "./list";
 
 ### Options
 
-`props.xxx`
+#### `props.xxx`
 
 ```javascript
 <Scroll
@@ -42,9 +42,10 @@ scrollTop > this.props.scrollPoint
 * loadDataForScroll
 	- callback passed from parent component
 
-* `this.scrollEle.xxx`
+####  `this.scrollEle.xxx`
 
 ```javascript
+\\ We use ref to store `Scroll` component in attribute.
 <Scroll
 	ref={(scrollEle) => {
 		this.scrollEle = scrollEle;

@@ -15,7 +15,7 @@ import List from "./list";
 
 ### 配置
 
-`props.xxx`
+#### `props.xxx`
 
 ```javascript
 <Scroll
@@ -44,9 +44,10 @@ scrollTop > this.props.scrollPoint
 * loadDataForScroll
 	- 触发的回调方法
 
-* `this.scrollEle.xxx`
+####  `this.scrollEle.xxx`
 
 ```javascript
+\\ 内部使用了ref方式，将 `Scroll` 组件存放到组件属性当中
 <Scroll
 	ref={(scrollEle) => {
 		this.scrollEle = scrollEle;
