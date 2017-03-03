@@ -82,6 +82,3 @@ this.scrollEle.xxx
 ```javascript
 import Scroll from 'react-list-scroll/pindex';
 ```
-
-### Changelog
-* v0.1.2 新增preact版本
