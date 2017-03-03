@@ -7,9 +7,7 @@
 import Scroll from "react-list-scroll";
 import List from "./list";
  
-<Scroll
-    
->
+<Scroll>
     <List></List>
 </Scroll>
 ```
@@ -44,7 +42,7 @@ scrollTop > this.props.scrollPoint
 * loadDataForScroll
 	- callback passed from parent component
 
-`this.scrollEle.xxx`
+* `this.scrollEle.xxx`
 
 ```javascript
 <Scroll

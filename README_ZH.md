@@ -8,9 +8,7 @@
 import Scroll from "react-list-scroll";
 import List from "./list";
 
-<Scroll
-	
->
+<Scroll>
 	<List></List>
 </Scroll>
 ```
@@ -46,7 +44,7 @@ scrollTop > this.props.scrollPoint
 * loadDataForScroll
 	- 触发的回调方法
 
-`this.scrollEle.xxx`
+* `this.scrollEle.xxx`
 
 ```javascript
 <Scroll
