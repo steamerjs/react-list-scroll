@@ -57,6 +57,11 @@ var Scroll = function (_Component) {
 	};
 
 	Scroll.prototype.componentDidMount = function componentDidMount() {
+
+		// if (!this.scrollContainer) {
+		// 	this.scrollContainer = document.querySelector('.react-scroll-wrapper');
+		// }
+
 		this.bindScroll();
 	};
 
@@ -86,6 +91,7 @@ var Scroll = function (_Component) {
 			var scrollEle = isWindow ? _this2.scrollContainer.document : _this2.scrollContainer;
 			var scrollTop = isWindow ? scrollEle.body.scrollTop : scrollEle.scrollTop;
 
+			// console.dir(isWindow, scrollEle);
 			// 防止向上滚动也拉数据
 			if (_this2.prvScrollTop > scrollTop) {
 				return;
@@ -129,7 +135,9 @@ var Scroll = function (_Component) {
 				className: "react-scroll-wrapper" + (os.ios ? " ios" : ""),
 				style: scrollStyle,
 				ref: function ref(scrollContainer) {
-					_this3.scrollContainer = scrollContainer;
+					if (!_this3.scrollContainer) {
+						_this3.scrollContainer = scrollContainer || document.querySelector('.react-scroll-wrapper');
+					}
 				}
 			},
 			this.props.children
