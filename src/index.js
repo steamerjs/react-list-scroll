@@ -110,7 +110,9 @@ export default class Scroll extends Component {
 				className={"react-scroll-wrapper" + (os.ios ? " ios" : "")}
 				style={scrollStyle} 
 				ref={(scrollContainer) => {
-					this.scrollContainer = scrollContainer;
+					if (!this.scrollContainer) {
+						this.scrollContainer = scrollContainer;
+					}
 				}}
 			>
 			   {this.props.children}
