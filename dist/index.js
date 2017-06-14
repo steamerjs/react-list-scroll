@@ -129,7 +129,9 @@ var Scroll = function (_Component) {
 				className: "react-scroll-wrapper" + (os.ios ? " ios" : ""),
 				style: scrollStyle,
 				ref: function ref(scrollContainer) {
-					_this3.scrollContainer = scrollContainer;
+					if (!_this3.scrollContainer) {
+						_this3.scrollContainer = scrollContainer;
+					}
 				}
 			},
 			this.props.children

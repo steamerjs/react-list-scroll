@@ -1,6 +1,6 @@
 {
   "name": "react-list-scroll",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "react scroll for list",
   "main": "./dist/index.js",
   "scripts": {
