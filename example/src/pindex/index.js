@@ -141,6 +141,7 @@ export default class Wrapper extends Component {
 		    		ref={(scrollEle) => {
 						this.scrollEleAtBottom = scrollEle;
 					}}
+					useWindow={true}
 		    		loadDataForScroll={this.loadDataForScrollAtBottom}
 		    		scrollStyle={style}
 		    	>
@@ -158,6 +159,7 @@ export default class Wrapper extends Component {
 		    		ref={(scrollEle) => {
 						this.scrollEleAtHalf = scrollEle;
 					}}
+					useWindow={true}
 		    		loadDataForScroll={this.loadDataForScrollAtHalf}
 		    		isHalf={true}
 		    		scrollStyle={style}
@@ -176,6 +178,7 @@ export default class Wrapper extends Component {
 		    		ref={(scrollEle) => {
 						this.scrollEleAt10= scrollEle;
 					}}
+					useWindow={true}
 		    		loadDataForScroll={this.loadDataForScrollAt10}
 		    		scrollPoint={10}
 		    		scrollStyle={style}

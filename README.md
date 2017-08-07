@@ -27,6 +27,8 @@ import List from "./list";
 ```
 * disable
 	- disable scroll event
+* useWindow
+    - use `window` as the scroll container, default `false`
 * scrollStyle
 	- style of scroll component
 * scrollPoint

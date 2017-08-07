@@ -37,11 +37,6 @@ export default class Scroll extends Component {
 	}
 
 	componentDidMount() {
-
-		// if (!this.scrollContainer) {
-		// 	this.scrollContainer = document.querySelector('.react-scroll-wrapper');
-		// }
-
 		this.bindScroll();
 	}
 
@@ -54,7 +49,7 @@ export default class Scroll extends Component {
 	}
 
 	bindScroll() {
-		this.scrollContainer = (!os.ios) ? global : this.scrollContainer;
+		this.scrollContainer = (!os.ios || this.props.useWindow) ? global : this.scrollContainer;
 		this.scrollContainer.addEventListener('scroll', this.scrollEvt);
 	}
 
@@ -111,9 +106,12 @@ export default class Scroll extends Component {
 			scrollStyle = null 
 		} = this.props;
 
+		let windowClass = this.props.useWindow ? '-window' : '',
+			iosClass = os.ios ? 'ios' : '';
+
 		return (
 			<div 
-				className={"react-scroll-wrapper" + (os.ios ? " ios" : "")}
+				className={`react-scroll-wrapper${windowClass} ${iosClass}`}
 				style={scrollStyle} 
 				ref={(scrollContainer) => {
 					if (!this.scrollContainer) {

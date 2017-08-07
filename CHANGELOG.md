@@ -1,3 +1,6 @@
+## 1.0.5
+    - fix window scroll
+
 ## 1.0.4
 	- fix ref issue
 

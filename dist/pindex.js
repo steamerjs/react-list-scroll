@@ -57,11 +57,6 @@ var Scroll = function (_Component) {
 	};
 
 	Scroll.prototype.componentDidMount = function componentDidMount() {
-
-		// if (!this.scrollContainer) {
-		// 	this.scrollContainer = document.querySelector('.react-scroll-wrapper');
-		// }
-
 		this.bindScroll();
 	};
 
@@ -72,7 +67,7 @@ var Scroll = function (_Component) {
 	};
 
 	Scroll.prototype.bindScroll = function bindScroll() {
-		this.scrollContainer = !os.ios ? _global2.default : this.scrollContainer;
+		this.scrollContainer = !os.ios || this.props.useWindow ? _global2.default : this.scrollContainer;
 		this.scrollContainer.addEventListener('scroll', this.scrollEvt);
 	};
 
@@ -129,10 +124,13 @@ var Scroll = function (_Component) {
 		    scrollStyle = _props$scrollStyle === undefined ? null : _props$scrollStyle;
 
 
+		var windowClass = this.props.useWindow ? '-window' : '',
+		    iosClass = os.ios ? 'ios' : '';
+
 		return (0, _preact.h)(
 			'div',
 			{
-				className: "react-scroll-wrapper" + (os.ios ? " ios" : ""),
+				className: 'react-scroll-wrapper' + windowClass + ' ' + iosClass,
 				style: scrollStyle,
 				ref: function ref(scrollContainer) {
 					if (!_this3.scrollContainer) {
