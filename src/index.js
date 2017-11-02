@@ -64,10 +64,9 @@ export default class Scroll extends Component {
 			}
 
 			var scrollEle = (isWindow) ? this.scrollContainer.document : this.scrollContainer;
-			var scrollTop = (isWindow) ? 
-							scrollEle.body.scrollTop
-							: scrollEle.scrollTop;
-
+			var scrollTop = (isWindow) ? (window.scrollY || window.pageYOffset) : 
+							(scrollEle.body.scrollTop || scrollEle.scrollTop);
+			
 			// 防止向上滚动也拉数据
             if (this.prvScrollTop > scrollTop) {
                 return;

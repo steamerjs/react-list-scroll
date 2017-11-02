@@ -1,3 +1,6 @@
+## 1.0.6
+	- fix latest chrome scrollTop issue
+
 ## 1.0.5
     - fix window scroll
 
