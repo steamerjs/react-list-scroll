@@ -64,6 +64,7 @@ export default class Scroll extends Component {
 			}
 
 			var scrollEle = (isWindow) ? this.scrollContainer.document : this.scrollContainer;
+			// 是处 scrollTop 兼容主要是参考了这个issue: https://stackoverflow.com/questions/20514596/document-documentelement-scrolltop-return-value-differs-in-chrome
 			var scrollTop = (isWindow) ? (window.scrollY || window.pageYOffset) : 
 							(scrollEle.body.scrollTop || scrollEle.scrollTop);
 			
