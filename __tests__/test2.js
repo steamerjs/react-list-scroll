@@ -5,7 +5,7 @@ jasmine.DEFAULT_TIMEOUT_INTERVAL = 20000;
 
 jest.useFakeTimers();
 
-describe('scroll in ios', () => {
+describe.skip('scroll in ios', () => {
 
 	beforeAll(() => {
 

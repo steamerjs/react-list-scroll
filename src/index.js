@@ -49,6 +49,7 @@ export default class Scroll extends Component {
 
 	bindScroll() {
 		this.scrollContainer = (os.android || this.props.useWindow) ? global : this.scrollContainer;
+		console.log(this.scrollContainer);
 		this.scrollContainer.addEventListener('scroll', this.scrollEvt);
 	}
 

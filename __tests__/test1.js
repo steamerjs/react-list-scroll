@@ -8,7 +8,7 @@ jasmine.DEFAULT_TIMEOUT_INTERVAL = 20000;
 jest.useFakeTimers();
 
 describe('scroll in android', () => {
-	test('scroll to bottom', (done) => {
+	test.only('scroll to bottom', (done) => {
 
 		const wrapper = mount(<Wrapper />);
 
@@ -21,7 +21,7 @@ describe('scroll in android', () => {
 				catch(err) {
 					done.fail(err);
 				}
-			}, 100);
+			}, 1000);
 			jest.runAllTimers();
 
 		});
