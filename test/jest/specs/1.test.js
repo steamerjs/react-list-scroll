@@ -10,7 +10,7 @@ jest.useFakeTimers();
 describe('scroll in android', () => {
 	test('scroll to bottom', (done) => {
 
-        var Wrapper = require('../../example/src/page/index/container').default;
+        var Wrapper = require('../../../example/src/page/index/container').default;
 		const wrapper = mount(<Wrapper />);
 
         window.addEventListener('scroll', function(e) {
@@ -40,7 +40,7 @@ describe('scroll in android', () => {
 	test('scroll to half', (done) => {
 
         // const wrapper = mount(<Wrapper />);
-        var Wrapper = require('../../example/src/page/index/container').default;
+        var Wrapper = require('../../../example/src/page/index/container').default;
 		const wrapper = mount(<Wrapper />);
 		wrapper.find('ul').find('li').at(1).simulate('click');
 
@@ -69,7 +69,7 @@ describe('scroll in android', () => {
 
 	test('scroll to 10', (done) => {
 
-        var Wrapper = require('../../example/src/page/index/container').default;
+        var Wrapper = require('../../../example/src/page/index/container').default;
 		const wrapper = mount(<Wrapper />);
 		wrapper.find('ul').find('li').at(2).simulate('click');
 

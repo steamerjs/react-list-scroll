@@ -22,11 +22,11 @@ if (isKarma) {
     	configWebpack = config.webpack;
 
     let server = new karmaServer({
-        configFile: path.join(configWebpack.path.test, '/unit/karma.conf.js'),
+        configFile: path.join(configWebpack.path.test, '/karma/karma.conf.js'),
         singleRun: true
     }, function() {
         console.log('karma test done!');
-        // opn(path.join(configWebpack.path.test, 'unit/coverage/lcov-report/index.html'));
+        // opn(path.join(configWebpack.path.test, 'karma/coverage/lcov-report/index.html'));
     });
     server.start();
 }

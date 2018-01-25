@@ -21,6 +21,7 @@ var entry = {};
 if (isProduction) {
     entry = {
         index: path.join(srcPath, 'index.js'),
+        infinite: path.join(srcPath, 'infinite.js'),
         pindex: path.join(srcPath, 'pindex.js'),
         'index-nowindow': path.join(srcPath, 'index-nowindow.js')
     };

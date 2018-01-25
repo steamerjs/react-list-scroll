@@ -49,7 +49,7 @@ export default class Scroll extends Component {
 
 	bindScroll() {
 		this.scrollContainer = (os.android || this.props.useWindow) ? global : this.scrollContainer;
-		this.scrollContainer.addEventListener('scroll', this.scrollEvt);
+        this.scrollContainer.addEventListener('scroll', this.scrollEvt);
     }
 
     getWindowTop() {
@@ -68,7 +68,6 @@ export default class Scroll extends Component {
 	scrollEvt(evt) {
 		// ios一般绑定在具体元素上，android一般绑定在window上
 		let isWindow = (this.scrollContainer === global);
-
 		// 延迟计算
 		this.timer && clearTimeout(this.timer);
 		this.timer = setTimeout(() => {
@@ -78,8 +77,7 @@ export default class Scroll extends Component {
 
             let scrollEle = (isWindow) ? this.scrollContainer.document : this.scrollContainer;
 			// 是处 scrollTop 兼容主要是参考了这个issue: https://stackoverflow.com/questions/20514596/document-documentelement-scrolltop-return-value-differs-in-chrome
-			let scrollTop = (isWindow) ? this.getWindowTop() :
-							this.getEleTop(scrollEle);
+			let scrollTop = (isWindow) ? this.getWindowTop() : this.getEleTop(scrollEle);
 
 			// 防止向上滚动也拉数据
             if (this.prvScrollTop > scrollTop) {
@@ -125,7 +123,7 @@ export default class Scroll extends Component {
 
 		return (
 			<div
-				className={`react-scroll-wrapper${windowClass} ${iosClass} ${className}`}
+				className={`react-scroll-wrapper${windowClass} ${iosClass} ${className || ''}`}
 				style={scrollStyle || null}
 				ref={(scrollContainer) => {
 					if (!this.scrollContainer) {

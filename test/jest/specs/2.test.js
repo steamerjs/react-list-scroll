@@ -27,8 +27,8 @@ describe.only('scroll in ios', () => {
 
 	test('scroll to bottom', (done) => {
 
-        var Wrapper = require('../../example/src/page/index-nowindow/container').default;
-		var Scroll = require('../../src').default;
+        var Wrapper = require('../../../example/src/page/index-nowindow/container').default;
+		var Scroll = require('../../../src').default;
         const wrapper = mount(<Wrapper />);
         const scrollComp = wrapper.find(Scroll);
 
@@ -61,8 +61,8 @@ describe.only('scroll in ios', () => {
 
 	test('scroll to half', (done) => {
 
-        var Wrapper = require('../../example/src/page/index-nowindow/container').default;
-		var Scroll = require('../../src').default;
+        var Wrapper = require('../../../example/src/page/index-nowindow/container').default;
+		var Scroll = require('../../../src').default;
         const wrapper = mount(<Wrapper />);
         wrapper.setState({type: 1});
 
@@ -95,8 +95,8 @@ describe.only('scroll in ios', () => {
 
 	test('scroll to 10', (done) => {
 
-        var Wrapper = require('../../example/src/page/index-nowindow/container').default;
-		var Scroll = require('../../src').default;
+        var Wrapper = require('../../../example/src/page/index-nowindow/container').default;
+		var Scroll = require('../../../src').default;
         const wrapper = mount(<Wrapper />);
         wrapper.setState({type: 2});
 
