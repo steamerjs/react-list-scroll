@@ -6,6 +6,5 @@ node_modules.7z
 .happypack
 npm-debug.log
 yarn-error.log
-jest
 coverage
 dist
