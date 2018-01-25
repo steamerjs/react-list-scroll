@@ -5,7 +5,7 @@ import './index.less';
 import global from 'global';
 
 let nav = (global && global.navigator) ? global.navigator : null;
-let ua = nav ? navigator.userAgent.toLowerCase() : "";
+let ua = nav ? navigator.userAgent.toLowerCase() : '';
 
 let _platform = function(os) {
     let ver = ('' + (new RegExp(os + '(\\d+((\\.|_)\\d+)*)').exec(ua) || [,0])[1]).replace(/_/g, '.');
@@ -49,12 +49,12 @@ export default class Scroll extends Component {
 	}
 
 	bindScroll() {
-		this.scrollContainer = (!os.ios || this.props.useWindow) ? global : this.scrollContainer;
+		this.scrollContainer = (os.android || this.props.useWindow) ? global : this.scrollContainer;
 		this.scrollContainer.addEventListener('scroll', this.scrollEvt);
 	}
 
 	scrollEvt(evt) {
-		var isWindow = (this.scrollContainer === global);
+		let isWindow = (this.scrollContainer === global);
 
 		// 延迟计算
 		this.timer && clearTimeout(this.timer);
@@ -63,19 +63,20 @@ export default class Scroll extends Component {
 				return;
 			}
 
-			var scrollEle = (isWindow) ? this.scrollContainer.document : this.scrollContainer;
-			var scrollTop = (isWindow) ? (window.scrollY || window.pageYOffset) : 
+			let scrollEle = (isWindow) ? this.scrollContainer.document : this.scrollContainer;
+			let scrollTop = (isWindow) ? (window.scrollY || window.pageYOffset) : 
 							(scrollEle.body.scrollTop || scrollEle.scrollTop);
 
 			// console.dir(isWindow, scrollEle);
 			// 防止向上滚动也拉数据
             if (this.prvScrollTop > scrollTop) {
+				this.prvScrollTop = scrollTop;
                 return;
             }
             this.prvScrollTop = scrollTop;
 
-			var containerHeight = (isWindow) ? scrollEle.documentElement.clientHeight : scrollEle.offsetHeight;
-			var scrollHeight = (isWindow) ? scrollEle.body.scrollHeight : scrollEle.scrollHeight;
+			let containerHeight = (isWindow) ? scrollEle.documentElement.clientHeight : scrollEle.offsetHeight;
+			let scrollHeight = (isWindow) ? scrollEle.body.scrollHeight : scrollEle.scrollHeight;
 			
 			if (scrollTop >= this.getTriggerPoint(scrollHeight, containerHeight)) {
 				this.props.loadDataForScroll && this.props.loadDataForScroll();
@@ -101,8 +102,9 @@ export default class Scroll extends Component {
 
 	render() {
 
-		let { 
-			scrollStyle = null 
+		let {
+			scrollStyle,
+			className
 		} = this.props;
 
 		let windowClass = this.props.useWindow ? '-window' : '',
@@ -110,11 +112,11 @@ export default class Scroll extends Component {
 
 		return (
 			<div 
-				className={`react-scroll-wrapper${windowClass} ${iosClass}`}
-				style={scrollStyle} 
+				className={`react-scroll-wrapper${windowClass} ${iosClass} ${className}`}
+				style={scrollStyle || null} 
 				ref={(scrollContainer) => {
 					if (!this.scrollContainer) {
-						this.scrollContainer = scrollContainer || document.querySelector('.react-scroll-wrapper');
+						this.scrollContainer = this.props.scrollContainer || scrollContainer || document.querySelector('.react-scroll-wrapper');
 					}
 				}}
 			>

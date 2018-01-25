@@ -84,7 +84,7 @@ var Scroll = function (_Component) {
 			}
 
 			var scrollEle = isWindow ? _this2.scrollContainer.document : _this2.scrollContainer;
-			var scrollTop = isWindow ? scrollEle.body.scrollTop : scrollEle.scrollTop;
+			var scrollTop = isWindow ? window.scrollY || window.pageYOffset : scrollEle.body.scrollTop || scrollEle.scrollTop;
 
 			// console.dir(isWindow, scrollEle);
 			// 防止向上滚动也拉数据

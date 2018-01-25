@@ -84,7 +84,8 @@ var Scroll = function (_Component) {
 			}
 
 			var scrollEle = isWindow ? _this2.scrollContainer.document : _this2.scrollContainer;
-			var scrollTop = isWindow ? scrollEle.body.scrollTop : scrollEle.scrollTop;
+			// 是处 scrollTop 兼容主要是参考了这个issue: https://stackoverflow.com/questions/20514596/document-documentelement-scrolltop-return-value-differs-in-chrome
+			var scrollTop = isWindow ? window.scrollY || window.pageYOffset : scrollEle.body.scrollTop || scrollEle.scrollTop;
 
 			// 防止向上滚动也拉数据
 			if (_this2.prvScrollTop > scrollTop) {

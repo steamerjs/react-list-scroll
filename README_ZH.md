@@ -31,8 +31,12 @@ import List from "./list";
 	- 禁用滚动事件
 * useWindow
     - 用 `window` 对象作为滚动的对象, 默认 `false`
+* scrollContainer
+	- 用户自定义滚动组件, 你可传入 `HTML` 元素
 * scrollStyle
 	- 滚动组件样式
+* className
+	- 滚动组件class
 * scrollPoint
 	- 用户自定义触发 loadDataForScroll 方法的位置
 ```javascript

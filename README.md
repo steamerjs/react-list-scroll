@@ -29,8 +29,12 @@ import List from "./list";
 	- disable scroll event
 * useWindow
     - use `window` as the scroll container, default `false`
+* scrollContainer
+	- user-defined scroll container, you can pass an HTML element
 * scrollStyle
 	- style of scroll component
+* className
+	- className of scroll component
 * scrollPoint
 	- user customized point to trigger loadDataForScroll
 ```javascript
