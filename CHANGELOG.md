@@ -1,3 +1,6 @@
+## 1.0.7
+	- new props, `scrollContainer`, `className``
+
 ## 1.0.6
 	- fix latest chrome scrollTop issue
 
