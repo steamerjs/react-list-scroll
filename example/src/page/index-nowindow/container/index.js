@@ -1,83 +1,8 @@
-/** @jsx h */
-import Preact, { h, render, Component } from 'preact';
-import Scroll from '../../../src/pindex';
+import React, { Component } from 'react';
+import List from './list';
+import Scroll from '../../../../../src/index';
 
 require('./index.less');
-
-export class List extends Component {
-	constructor(props, context) {
-		super(props, context);
-	}
-
-
-	componentDidMount() {
-		
-	}
-
-	render() {
-
-		let {
-			type 
-		} = this.props;
-
-		return (
-			<ul>
-				<li>123</li>
-				<li>123</li>
-				<li>123</li>
-				<li>123</li>
-				<li>123</li>
-				<li>123</li>
-				<li>123</li>
-				<li>123</li>
-				<li>123</li>
-				<li>123</li>
-				<li>123</li>
-				<li>123</li>
-				<li>123</li>
-				<li>123</li>
-				<li>123</li>
-				<li>123</li>
-				<li>123</li>
-				<li>123</li>
-				<li>123</li>
-				<li>123</li>
-				<li>123</li>
-				<li>123</li>
-				<li>123</li>
-				<li>123</li>
-				<li>123</li>
-				<li>123</li>
-				<li>123</li>
-				<li>123</li>
-				<li>123</li>
-				<li>123</li>
-				<li>123</li>
-				<li>123</li>
-				<li>123</li>
-				<li>123</li>
-				<li>123</li>
-				<li>123</li>
-				<li>123</li>
-				<li>123</li>
-				<li>123</li>
-				<li>123</li>
-				<li>123</li>
-				<li>123</li>
-				<li>123</li>
-				<li>123</li>
-				<li>123</li>
-				<li>123</li>
-				<li>123</li>
-				<li>123</li>
-				<li>123</li>
-				<li>123</li>
-				<li>123</li>
-				<li>123</li>
-			</ul>
-		);
-	}
-}
 
 export default class Wrapper extends Component {
 
@@ -97,7 +22,7 @@ export default class Wrapper extends Component {
 	}
 
 	componentDidMount() {
-		
+
 	}
 
 	loadDataForScrollAtBottom() {
@@ -135,17 +60,19 @@ export default class Wrapper extends Component {
 
 		if (type === 0) {
 			return (
-				<Scroll 
+				<Scroll
 					key={1}
 		    		wrapper={".react-scroll-wrapper"}
 		    		ref={(scrollEle) => {
 						this.scrollEleAtBottom = scrollEle;
 					}}
-					useWindow={true}
+					useWindow={false}
 		    		loadDataForScroll={this.loadDataForScrollAtBottom}
 		    		scrollStyle={style}
+		    		disable={this.state.disable}
+		    		isEnd={this.state.isEnd}
 		    	>
-		    		<List 
+		    		<List
 						type={type}
 					/>
 		    	</Scroll>
@@ -153,37 +80,37 @@ export default class Wrapper extends Component {
 		}
 		else if (type === 1) {
 			return (
-				<Scroll 
+				<Scroll
 					key={2}
 		    		wrapper={".react-scroll-wrapper"}
 		    		ref={(scrollEle) => {
 						this.scrollEleAtHalf = scrollEle;
 					}}
-					useWindow={true}
+					useWindow={false}
 		    		loadDataForScroll={this.loadDataForScrollAtHalf}
 		    		isHalf={true}
 		    		scrollStyle={style}
 		    	>
-		    		<List 
-						type={type} 
+		    		<List
+						type={type}
 					/>
 		    	</Scroll>
 			)
 		}
 		else if (type === 2) {
 			return (
-				<Scroll 
+				<Scroll
 					key={3}
 		    		wrapper={".react-scroll-wrapper"}
 		    		ref={(scrollEle) => {
 						this.scrollEleAt10= scrollEle;
 					}}
-					useWindow={true}
+					useWindow={false}
 		    		loadDataForScroll={this.loadDataForScrollAt10}
 		    		scrollPoint={10}
 		    		scrollStyle={style}
 		    	>
-		    		<List 
+		    		<List
 						type={type}
 					/>
 		    	</Scroll>
@@ -214,18 +141,12 @@ export default class Wrapper extends Component {
 					<li onClick={this.changeScrollType(1)}>滚动到一半</li>
 					<li onClick={this.changeScrollType(2)}>滚动10px</li>
 				</ul>
-				
+
 		    	{
 		    		this.renderScroll()
 		    	}
-		        
+
 		    </div>
 		);
 	}
 }
-
-
-render(
-    <Wrapper />,
-    document.getElementById('root')
-);

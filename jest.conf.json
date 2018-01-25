@@ -1,0 +1,24 @@
+{
+  "moduleFileExtensions": [
+    "js",
+    "jsx"
+  ],
+  "moduleDirectories": [
+    "node_modules"
+  ],
+  "coverageDirectory": "<rootDir>/test/jest/coverage",
+  "testMatch": [
+    "<rootDir>/test/jest/**/?(*.)(spec|test).js?(x)"
+  ],
+  "setupFiles": [
+    "<rootDir>/test/jest/helpers/enzyme.helper.js"
+  ],
+  "moduleNameMapper": {
+    "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/test/jest/mocks/fileMock.js",
+    "\\.(css|less|scss|sass|styl)$": "<rootDir>/test/jest/mocks/styleMock.js"
+  },
+  "unmockedModulePathPatterns": [
+    "node_modules/react/",
+    "node_modules/enzyme/"
+  ]
+}

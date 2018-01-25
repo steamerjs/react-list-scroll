@@ -23,7 +23,7 @@ export default class Scroll extends Component {
 	constructor(props, context) {
 		super(props, context);
 		this.state = {
-			
+
 		};
 		this.prvScrollTop = 0;
 		this.bindScroll = this.bindScroll.bind(this);
@@ -40,7 +40,7 @@ export default class Scroll extends Component {
 	}
 
 	componentDidUpdate(prevProps, prevState) {
-	
+
 	}
 
 	componentWillUnmount() {
@@ -49,9 +49,21 @@ export default class Scroll extends Component {
 
 	bindScroll() {
 		this.scrollContainer = (os.android || this.props.useWindow) ? global : this.scrollContainer;
-		console.log(this.scrollContainer);
 		this.scrollContainer.addEventListener('scroll', this.scrollEvt);
-	}
+    }
+
+    getWindowTop() {
+        return global.scrollY || global.pageYOffset;
+    }
+
+    getEleTop(scrollEle) {
+        if (scrollEle.body && scrollEle.body) {
+            return scrollEle.body.scrollTop
+        }
+        else {
+            return scrollEle.scrollTop;
+        }
+    }
 
 	scrollEvt(evt) {
 		// ios一般绑定在具体元素上，android一般绑定在window上
@@ -64,11 +76,11 @@ export default class Scroll extends Component {
 				return;
 			}
 
-			let scrollEle = (isWindow) ? this.scrollContainer.document : this.scrollContainer;
+            let scrollEle = (isWindow) ? this.scrollContainer.document : this.scrollContainer;
 			// 是处 scrollTop 兼容主要是参考了这个issue: https://stackoverflow.com/questions/20514596/document-documentelement-scrolltop-return-value-differs-in-chrome
-			let scrollTop = (isWindow) ? (window.scrollY || window.pageYOffset) : 
-							(scrollEle.body.scrollTop || scrollEle.scrollTop);
-			
+			let scrollTop = (isWindow) ? this.getWindowTop() :
+							this.getEleTop(scrollEle);
+
 			// 防止向上滚动也拉数据
             if (this.prvScrollTop > scrollTop) {
 				this.prvScrollTop = scrollTop;
@@ -78,12 +90,12 @@ export default class Scroll extends Component {
 
 			let containerHeight = (isWindow) ? scrollEle.documentElement.clientHeight : scrollEle.offsetHeight;
 			let scrollHeight = (isWindow) ? scrollEle.body.scrollHeight : scrollEle.scrollHeight;
-			
+
 			if (scrollTop >= this.getTriggerPoint(scrollHeight, containerHeight)) {
 				this.props.loadDataForScroll && this.props.loadDataForScroll();
 			}
 
-		}, 50); 
+		}, 50);
 	}
 
 	getTriggerPoint(scrollHeight, containerHeight) {
@@ -112,9 +124,9 @@ export default class Scroll extends Component {
 			iosClass = os.ios ? 'ios' : '';
 
 		return (
-			<div 
+			<div
 				className={`react-scroll-wrapper${windowClass} ${iosClass} ${className}`}
-				style={scrollStyle || null} 
+				style={scrollStyle || null}
 				ref={(scrollContainer) => {
 					if (!this.scrollContainer) {
 						this.scrollContainer = this.props.scrollContainer || scrollContainer || document.querySelector('.react-scroll-wrapper');

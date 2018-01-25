@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import List from './list';
-import Scroll from '../../../../src/index';
+import Scroll from '../../../../../src/index';
 
 require('./index.less');
 
@@ -22,7 +22,7 @@ export default class Wrapper extends Component {
 	}
 
 	componentDidMount() {
-		
+
 	}
 
 	loadDataForScrollAtBottom() {
@@ -60,7 +60,7 @@ export default class Wrapper extends Component {
 
 		if (type === 0) {
 			return (
-				<Scroll 
+				<Scroll
 					key={1}
 		    		wrapper={".react-scroll-wrapper"}
 		    		ref={(scrollEle) => {
@@ -72,7 +72,7 @@ export default class Wrapper extends Component {
 		    		disable={this.state.disable}
 		    		isEnd={this.state.isEnd}
 		    	>
-		    		<List 
+		    		<List
 						type={type}
 					/>
 		    	</Scroll>
@@ -80,7 +80,7 @@ export default class Wrapper extends Component {
 		}
 		else if (type === 1) {
 			return (
-				<Scroll 
+				<Scroll
 					key={2}
 		    		wrapper={".react-scroll-wrapper"}
 		    		ref={(scrollEle) => {
@@ -91,15 +91,15 @@ export default class Wrapper extends Component {
 		    		isHalf={true}
 		    		scrollStyle={style}
 		    	>
-		    		<List 
-						type={type} 
+		    		<List
+						type={type}
 					/>
 		    	</Scroll>
 			)
 		}
 		else if (type === 2) {
 			return (
-				<Scroll 
+				<Scroll
 					key={3}
 		    		wrapper={".react-scroll-wrapper"}
 		    		ref={(scrollEle) => {
@@ -110,7 +110,7 @@ export default class Wrapper extends Component {
 		    		scrollPoint={10}
 		    		scrollStyle={style}
 		    	>
-		    		<List 
+		    		<List
 						type={type}
 					/>
 		    	</Scroll>
@@ -141,11 +141,11 @@ export default class Wrapper extends Component {
 					<li onClick={this.changeScrollType(1)}>滚动到一半</li>
 					<li onClick={this.changeScrollType(2)}>滚动10px</li>
 				</ul>
-				
+
 		    	{
 		    		this.renderScroll()
 		    	}
-		        
+
 		    </div>
 		);
 	}
