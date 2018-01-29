@@ -9,6 +9,7 @@
     "dist": "npm run babel",
     "test": "npm run karma",
     "babel": "babel src --out-dir dist --copy-files",
+    "prepublish", "npm run dist",
     "webpack": "cross-env NODE_ENV=production node ./tools/script.js",
     "jest": "jest --coverage --config ./jest.conf.json",
     "karma": "cross-env BABEL_ENV=test NODE_ENV=production KARMA_ENV=karma node ./tools/script.js",
