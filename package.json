@@ -1,7 +1,7 @@
 {
-  "name": "steamer-react-component",
-  "version": "3.0.0",
-  "description": "react component development starter kit",
+  "name": "react-list-scroll",
+  "version": "2.0.0",
+  "description": "react scroll for list",
   "main": "./dist/index.js",
   "scripts": {
     "start": "cross-env NODE_ENV=development node ./tools/script.js",
@@ -19,22 +19,19 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/steamerjs/steamer-react-component.git"
+    "url": "git+https://github.com/steamerjs/react-list-scroll.git"
   },
   "keywords": [
-    "steamer starterkit",
-    "steamer",
     "react",
-    "component",
-    "starter kit",
-    "boilerplate"
+    "list",
+    "scroll"
   ],
   "author": "steamerjs",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/steamerjs/steamer-react-component/issues"
+    "url": "https://github.com/steamerjs/react-list-scroll/issues"
   },
-  "homepage": "https://github.com/steamerjs/steamer-react-component#readme",
+  "homepage": "https://github.com/steamerjs/react-list-scroll#readme",
   "dependencies": {},
   "devDependencies": {
     "@alloyteam/stylelint-config-standard": "0.0.2",
